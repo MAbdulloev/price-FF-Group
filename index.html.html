@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FF-Group | Прайс-лист фулфилмент-услуг</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7e22ce;
+            --accent: #0ea5e9;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --border-radius: 12px;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: #fff;
+        }
+
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+
+        .logo-text span {
+            font-weight: 400;
+            color: var(--light-gray);
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        .contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: flex-end;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0 2rem;
+            text-align: center;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232563eb" opacity="0.03"/><path d="M0 0L100 100M100 0L0 100" stroke="%232563eb" stroke-width="0.5" opacity="0.05"/></svg>');
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--gray);
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 2rem 0 4rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--light-gray);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .card-header h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--light-gray);
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+        }
+
+        .service-name {
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .service-price {
+            font-weight: 600;
+            color: var(--primary);
+            white-space: nowrap;
+        }
+
+        .note {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f9ff;
+            border-left: 4px solid var(--accent);
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            font-size: 0.9rem;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 3rem 0;
+            background-color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: var(--light);
+            border-radius: var(--border-radius);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--light-gray);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .contacts {
+                align-items: center;
+                margin-top: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-boxes logo-icon"></i>
+                <div>
+                    <div class="logo-text">FF-Group <span>Fulfillment</span></div>
+                    <div class="tagline">Профессиональные решения для вашего бизнеса</div>
+                </div>
+            </div>
+            <div class="contacts">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i> +7 977 424 20 78
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Прайс-лист на фулфилмент-услуги</h1>
+            <p>Комплексные решения для маркетплейсов: от забора груза до доставки в пункты выдачи. Прозрачные цены и профессиональный подход.</p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши услуги и цены</h2>
+            </div>
+            
+            <div class="pricing-cards">
+                <!-- Основные услуги -->
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-truck-loading"></i> Основные услуги</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="service-item">
+                            <div class="service-name">Забор груза (до 3 кубов)</div>
+                            <div class="service-price">2 500 ₽</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Последующий куб (после 3 кубов)</div>
+                            <div class="service-price">450 ₽/куб</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Снятие обрешетки с европаллеты</div>
+                            <div class="service-price">500 ₽/паллета</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Утилизация мусора (обрешетка)</div>
+                            <div class="service-price">200 ₽/паллета</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Снятие мешков с коробов</div>
+                            <div class="service-price">50 ₽/короб</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Разгрузка/погрузка коробов</div>
+                            <div class="service-price">50 ₽/короб</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Ожидание водителя (более 3 часов)</div>
+                            <div class="service-price">1 000 ₽/час</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Упаковка и маркировка -->
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-tape"></i> Упаковка и маркировка</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="service-item">
+                            <div class="service-name">Поштучная приемка</div>
+                            <div class="service-price">3 ₽</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Маркировка (базовая)</div>
+                            <div class="service-price">5 ₽</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Честный знак</div>
+                            <div class="service-price">8 ₽</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Другая маркировка</div>
+                            <div class="service-price">5 ₽</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Вложение в товар</div>
+                            <div class="service-price">8 ₽</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Собрать индивидуальный короб</div>
+                            <div class="service-price">10 ₽</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Собрать комплект</div>
+                            <div class="service-price">4 ₽/ед. вложения</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Повесить бирку</div>
+                            <div class="service-price">8 ₽</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Наклеить ШК коробов поставки</div>
+                            <div class="service-price">10 ₽/короб</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Паллетирование и упаковка -->
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-pallet"></i> Паллетирование и упаковка</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="service-item">
+                            <div class="service-name">Упаковка в БОПП пакет</div>
+                            <div class="service-price">от 15 ₽</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Заклеить скотчем</div>
+                            <div class="service-price">от 10 ₽/шт</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Собрать в короб</div>
+                            <div class="service-price">30 ₽/короб</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Паллетирование</div>
+                            <div class="service-price">500 ₽/паллета</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Паллета (стандарт)</div>
+                            <div class="service-price">350 ₽</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Короб 60×40×40</div>
+                            <div class="service-price">85 ₽</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Доставка -->
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-shipping-fast"></i> Доставка</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="service-item">
+                            <div class="service-name">Электросталь, Обухово</div>
+                            <div class="service-price">3 500 ₽/паллета</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Коледино, Подольск, Белые столбы</div>
+                            <div class="service-price">3 000 ₽/паллета</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Тула, Рязань</div>
+                            <div class="service-price">5 000 ₽</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Краснодар, Невинномысск</div>
+                            <div class="service-price">8 000 ₽</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Казань</div>
+                            <div class="service-price">7 800 ₽</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Санкт-Петербург</div>
+                            <div class="service-price">7 800 ₽</div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-name">Ожидание водителя (более 3 часов)</div>
+                            <div class="service-price">1 000 ₽/час</div>
+                        </div>
+                        <div class="note">
+                            <i class="fas fa-info-circle"></i> Цены указаны за доставку 1 паллеты. Для расчета стоимости доставки нескольких паллет свяжитесь с нами.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Преимущества FF-Group</h2>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <h3>Современные склады</h3>
+                    <p>Склады класса А с контролем температуры и влажности</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Безопасность</h3>
+                    <p>Круглосуточное видеонаблюдение и охрана</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Собственный автопарк</h3>
+                    <p>Оперативный забор и доставка грузов</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Персональный менеджер</h3>
+                    <p>Индивидуальный подход к каждому клиенту</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>FF-Group Fulfillment</h3>
+                    <p>Профессиональный фулфилмент для маркетплейсов. Мы берем на себя все этапы работы с товаром, чтобы вы могли сосредоточиться на развитии бизнеса.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Московская область, деревня Апаринки, дом 4А</li>
+                        <li><i class="fas fa-phone"></i> +7 977 424 20 78</li>
+                        <li><i class="fas fa-clock"></i> Пн-Вс: 9:00 - 18:00</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Свяжитесь с нами</h3>
+                    <p>Оставьте заявку, и наш менеджер свяжется с вами для расчета стоимости услуг</p>
+                    <button style="background: var(--primary); color: white; border: none; padding: 12px 25px; border-radius: 30px; font-weight: 500; margin-top: 15px; cursor: pointer; transition: var(--transition);">
+                        <i class="fas fa-paper-plane"></i> Оставить заявку
+                    </button>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 FF-Group Fulfillment. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Плавная прокрутка при клике на ссылки
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Анимация карточек при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.pricing-card, .feature-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = "0";
+                    card.style.transform = "translateY(20px)";
+                    card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+                    
+                    setTimeout(() => {
+                        card.style.opacity = "1";
+                        card.style.transform = "translateY(0)";
+                    }, 100);
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
